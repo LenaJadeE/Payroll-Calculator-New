@@ -84,3 +84,21 @@ public class Employee {
 //  Step 3
 //      1. Ensure all your changes are committed and pushed to GitHub
 //      2. Send your repository URL to your Instructor
+//
+//  EXERCISE 1
+//      Continue working on the payroll-calculator program.
+//      Rather than displaying your payroll report to the screen, write it to a .csv file in the following format.
+//          id|name|gross pay
+//          111|Cameron Tay|3277.65
+//          222|James Tee|2150.00
+//      Prompt the user for the name of a file to read and process, then prompt them for thename of the payroll file to create.
+//          Enter the name of the file to process: employees.csv
+//          Enter the name of the payroll file to create: payroll-sept-2023.csv
+//          When your program finishes running, open the new file to view the results.
+//  BONUS: If the user chooses specifies a .json extension write the data as JSON instead of csv.
+//      For example:
+//          Enter the name of the file to process: employees.csv
+//          Enter the name of the payroll file to create: payroll-sept-2023.json
+//          payroll-sept-2023.json
+//  [ { "id": 111, "name" : "Cameron Tay", "grossPay" : 3277.65 },
+//  { "id": 222, "name" : "James Tee", "grossPay" : 2150.00 }
