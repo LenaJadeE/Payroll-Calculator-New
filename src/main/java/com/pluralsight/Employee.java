@@ -62,7 +62,7 @@ public class Employee {
 //  Create a new Java application named payroll-calculator. You will reademployee data from a .csv file and generate the payroll information for each employee.
 //  For this exercise read the file using the BufferedReader.
 //  The employees.csv file in DataFiles.zip will contain several lines of employee
-//      data in the form:
+//     data in the form:
 //          id|name|hours-worked|pay-rate
 //      For example:
 //          10|Dana Wyatt|52.5|12.50
