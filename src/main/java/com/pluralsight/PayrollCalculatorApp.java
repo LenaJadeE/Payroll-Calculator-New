@@ -53,7 +53,7 @@ public class PayrollCalculatorApp {
         }
     }
 
-    private static  Employee parseEmployee(String line) {
+    private static Employee parseEmployee(String line) {
         String[] tokens = line.split("\\|");
 
         int id = Integer.parseInt(tokens[0].trim());
