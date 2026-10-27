@@ -1,6 +1,9 @@
 package com.pluralsight;
 
 public class Employee {
+    private static final double RegularHours = 40;
+    private static final double OvertimeMultiplier = 1.5;
+
     private int employeeId;
     private String name;
     private double hoursWorked;
@@ -46,11 +49,11 @@ public class Employee {
     }
 
     public double getGrossPay() {
-        if (hoursWorked <= 0) {
+        if (hoursWorked <= RegularHours) {
             return hoursWorked * payRate;
         }
-        double overtimeHours = hoursWorked - 40;
-        return (40 * payRate) + (overtimeHours * payRate * 1.5);
+        double overtimeHours = hoursWorked - RegularHours;
+        return (RegularHours * payRate) + (overtimeHours * payRate * OvertimeMultiplier);
     }
 }
 
