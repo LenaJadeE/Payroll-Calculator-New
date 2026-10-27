@@ -16,25 +16,30 @@ public class PayrollCalculatorApp {
 
         boolean isJson = outputFile.toLowerCase().endsWith(".json");
 
-        try {
-            BufferedReader buffReader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter buffWriter = new BufferedWriter(new FileWriter(outputFile));
-
-            String input;
-            boolean firstEmployee = true;
+        try (BufferedReader buffReader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter buffWriter = new BufferedWriter(new FileWriter(outputFile))) {
 
             buffReader.readLine();
 
-            if (isJson) {
-                buffWriter.write("[\n");
-            } else {
-                buffWriter.write("id|name|gross pay\n");
-            }
+            buffWriter.write(isJson ? "[\n" : "id|name|gross pay\n");
 
-            while ((input = buffReader.readLine()) != null) {
-                if (input.trim().isEmpty()) {
+            boolean firstEmployee = true;
+            String line;
+            while ((line = buffReader.readLine()) != null) {
+                if (line.isBlank()) {
                     continue;
                 }
+
+                Employee employee = parseEmployee(line);
+
+                if (isJson) {
+                    buffWriter.write("[\n");
+                } else {
+                    buffWriter.write("id|name|gross pay\n");
+                }
+            }
+
+
 
                 String[] tokens = input.split("\\|");
 
@@ -67,10 +72,8 @@ public class PayrollCalculatorApp {
             buffWriter.close();
             System.out.println("Payroll written to " + outputFile);
         } catch (IOException e){
-            System.out.println("ERROR: An unexpected error occurred");
-            e.printStackTrace();
+            System.out.println("ERROR: Could not process the files") +  e.getMessage());
         }
 
-        scanner.close();
     }
 }
