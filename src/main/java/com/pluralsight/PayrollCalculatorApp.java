@@ -77,7 +77,10 @@ public class PayrollCalculatorApp {
         }
     }
 
-    private static
+    private static void  printSummary(Employee employee) {
+        System.out.printf(Locale.US, "%-18s %5.1f hrs @ $%.2f%n",
+                employee.getName(), employee.getHoursWorked(), employee.getPayRate());
+    }
 
     private static String toCsv(Employee employee) {
         return String.format(Locale.US, "%d|%s|%.2f%n",
