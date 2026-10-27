@@ -31,6 +31,8 @@ public class PayrollCalculatorApp {
                 }
 
                 Employee employee = parseEmployee(line);
+                employeeData(employee);
+                printSummary(employee);
 
                 if (isJson) {
                     if (!firstEmployee) {
@@ -61,6 +63,21 @@ public class PayrollCalculatorApp {
 
         return new Employee(id, name, hoursWorked, payRate);
     }
+
+    private static void  employeeData(Employee employee) {
+        if (employee.getEmployeeId() < 0) {
+            employee.setEmployeeId(Math.abs(employee.getEmployeeId()));
+        }
+        employee.setName(employee.getName().trim());
+        if (employee.getHoursWorked() < 0) {
+            employee.setHoursWorked(0);
+        }
+        if (employee.getPayRate() < 0) {
+            employee.setPayRate(0);
+        }
+    }
+
+    private static
 
     private static String toCsv(Employee employee) {
         return String.format(Locale.US, "%d|%s|%.2f%n",
